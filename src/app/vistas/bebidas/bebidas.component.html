@@ -1,0 +1,10 @@
+<div class="container-fluid text-center">
+    <h1>Menu de Bebidas</h1>
+    <div class="album py-5 bg-secondary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <app-lista-bebidas *ngFor="let im of imagenBebidas" [imagenBebidasDevolucion]="im"></app-lista-bebidas>
+            </div>           
+        </div>        
+    </div>
+</div>

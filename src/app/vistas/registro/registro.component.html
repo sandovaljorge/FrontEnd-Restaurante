@@ -1,0 +1,76 @@
+<div class="container-fluid text-center">
+    <div class="container">
+        <div class="col-auto p-5">
+            <h1>Nuevo Usuario</h1>
+            <br><br>
+            <form [formGroup]="formularioUsuario" (ngSubmit)="guardarFormulario()">
+                <input type="text" formControlName="nombre" placeholder="Nombre" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('nombre').invalid &&
+                    (formularioUsuario.get('nombre').dirty || formularioUsuario.get('nombre').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('nombre').errors.required">
+                            *Campo Nombre obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('nombre').errors.minlength">
+                            *Minimo 4 caracteres
+                        </div>
+                </div>
+                <br>
+                <input type="text" formControlName="apellido" placeholder="Apellido" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('apellido').invalid &&
+                    (formularioUsuario.get('apellido').dirty || formularioUsuario.get('apellido').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('usuario').errors.required">
+                            *Campo Apellido obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('apellido').errors.minlength">
+                            *Minimo 4 caracteres
+                        </div>
+                </div>
+                <br>
+                <input type="text" formControlName="direccion" placeholder="Dirección" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('direccion').invalid &&
+                    (formularioUsuario.get('direccion').dirty || formularioUsuario.get('direccion').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('direccion').errors.required">
+                            *Campo Direccion obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('direccion').errors.minlength">
+                            *Minimo 7 caracteres
+                        </div>
+                </div>
+                <br>
+                <input type="text" formControlName="usuario" placeholder="Usuario" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('usuario').invalid &&
+                    (formularioUsuario.get('usuario').dirty || formularioUsuario.get('usuario').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('usuario').errors.required">
+                            *Campo usuario obligatorio
+                        </div>
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('usuario').errors.minlength">
+                            *Minimo 5 caracteres
+                        </div>
+                </div>
+                <br>
+                <input type="text" formControlName="email" placeholder="Email" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('email').invalid &&
+                    (formularioUsuario.get('email').dirty || formularioUsuario.get('email').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('email').errors.required">
+                            *Campo Email requerido
+                        </div>
+                        <div class="container-error-message" 
+                            *ngIf="(formularioUsuario.get('email').dirty || formularioUsuario.get('email').touched) && 
+                            formularioUsuario.get('email').invalid && formularioUsuario.get('email').errors.pattern">
+                            *Email no es valido
+                        </div>
+                </div>
+                <br>
+                <input type="password" formControlName="pass" placeholder="Contraseña" class="form-control">
+                <div class="alert-danger" *ngIf="formularioUsuario.get('pass').invalid && 
+                    (formularioUsuario.get('pass').dirty || formularioUsuario.get('pass').touched)">
+                        <div class="container-error-message" *ngIf="formularioUsuario.get('pass').errors.required">
+                            *Campo contraseña oblitoria
+                        </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+            </form>
+        </div>
+    </div>
+</div>
